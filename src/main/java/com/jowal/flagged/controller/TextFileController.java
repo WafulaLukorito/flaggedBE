@@ -40,6 +40,7 @@ public class TextFileController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error processing file", e);
         }
     }
+//Test automation
 
     @PostMapping("/check") //http://localhost:8070/api/words/check
     public ResponseEntity<BadWordsCheckResponse> checkWords(@RequestBody String input) {
