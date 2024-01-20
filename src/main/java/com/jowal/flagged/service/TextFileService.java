@@ -1,6 +1,7 @@
 package com.jowal.flagged.service;
 
 import com.jowal.flagged.dto.BadWordsCheckResponse;
+import com.jowal.flagged.dto.StoredFilesResponse;
 import com.jowal.flagged.repository.TextFileRepository;
 import com.jowal.flagged.model.TextFile;
 import jakarta.transaction.Transactional;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -97,6 +99,21 @@ public class TextFileService {
 
         return response;
     }
+    public List<StoredFilesResponse> getAllStoredFiles() {
+        List<TextFile> textFiles = textFileRepository.findAll();
+        return textFiles.stream()
+                .map(this::mapToStoredFilesResponse)
+                .collect(Collectors.toList());
+    }
+
+    private StoredFilesResponse mapToStoredFilesResponse(TextFile textFile) {
+        return new StoredFilesResponse(
+                textFile.getId(),
+                textFile.getName(),
+                textFile.getUploadDate()
+        );
+    }
+
 }
 
 
