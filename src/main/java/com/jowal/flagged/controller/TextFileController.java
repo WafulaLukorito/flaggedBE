@@ -41,6 +41,7 @@ public class TextFileController {
         }
     }
 //Test automation
+    // Test automation2
 
     @PostMapping("/check") //http://localhost:8070/api/words/check
     public ResponseEntity<BadWordsCheckResponse> checkWords(@RequestBody String input) {
