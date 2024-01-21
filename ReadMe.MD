@@ -1,5 +1,5 @@
 
-# FLagged Words Checker
+# FLagged Words Checker (Java Spring Boot Application)
 
 ## Access the Project: [https://flagged.lukorito.dev](https://flagged.lukorito.dev)
 
